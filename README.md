@@ -1,5 +1,7 @@
 # A contact form for SilverStripe 3.0
 
+**Forked version for SilverStripe 3.6.7 / PHP 7.2 Compatibility*
+
 This module allows you to create a simple contact form to add to a page type. It is highly configurable since the creation of the form happens in the page controller.
 
 ## Features
