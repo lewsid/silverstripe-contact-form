@@ -23,7 +23,7 @@
  * @author Aaron Carlino <aaron@bluehousegroup.com>
  * @package ContactForm
  */			
-class ContactForm extends Object {
+class ContactForm extends SS_Object {
 
 
 
