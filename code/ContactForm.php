@@ -449,25 +449,33 @@ class ContactForm extends SS_Object {
 	 * @param string The text description of the field to add
 	 * @return ContactForm
 	 */
+	/**
+	 * Adds a form field given a string, e.g. "What is your name?//Text"
+	 *
+	 * @param string The text description of the field to add
+	 * @return ContactForm
+	 */
 	public function addFromString($str) {	
 		$parts = explode("//", $str);
-		if(sizeof($parts) != 2) continue;
-		list($label, $type) = $parts;
-		$required = (substr($label, -1) == "*");
-		$name = self::create_name_from_label($label);
-		if(!class_exists($type) || !is_subclass_of($type, "FormField")) {
-			$type .= "Field";
-		}
-		if(is_subclass_of($type, "FormField")) {
-			if($required) {
-				$this->addRequiredField(Object::create($type, $name, substr_replace($label ,"",-1)));
+		if(sizeof($parts) == 2)
+		{
+			list($label, $type) = $parts;
+			$required = (substr($label, -1) == "*");
+			$name = self::create_name_from_label($label);
+			if(!class_exists($type) || !is_subclass_of($type, "FormField")) {
+				$type .= "Field";
 			}
-			else {
-				$this->addField(Object::create($type, $name, $label));	
+			if(is_subclass_of($type, "FormField")) {
+				if($required) {
+					$this->addRequiredField(Object::create($type, $name, substr_replace($label ,"",-1)));
+				}
+				else {
+					$this->addField(Object::create($type, $name, $label));	
+				}
 			}
-		}
-
-		return $this;
+	
+			return $this;
+		}		
 	}
 
 
