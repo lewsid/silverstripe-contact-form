@@ -10,7 +10,7 @@
  * @author Aaron Carlino <aaron@bluehousegroup.com>
  * @package ContactForm
  */
-abstract class ContactFormSpamProtector extends Object {
+abstract class ContactFormSpamProtector extends SS_Object {
 
 
 	
