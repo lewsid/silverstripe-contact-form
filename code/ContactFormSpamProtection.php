@@ -1,7 +1,7 @@
 <?php
 
 
-class ContactFormSpamProtection extends Object {
+class ContactFormSpamProtection extends SS_Object {
 
 
 
